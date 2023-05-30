@@ -1,0 +1,13 @@
+
+[ user ]
+token = ''
+
+[ captcha ]
+captchaApi = 'anti-captcha.com'
+captchaKey = ''
+
+[ ratelimits ]
+delay = 1.6
+
+[ discordgg ]
+authKey = ''
