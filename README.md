@@ -1,7 +1,7 @@
 # discord-joiner-bot
 ## Features
 - Add multiple bots to server
-- Proxy support
+- HTTP Proxies support
 - Ratelimit handle
 - Captcha solver
 ## Requirements
