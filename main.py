@@ -116,9 +116,11 @@ def get_bots():
     
 def inviter(userId):
     try:
+        prxies = random.choice(open('proxies.txt').read().splitlines())
+        proxy = {'http': 'http://' + prxies, 'https': 'http://' + prxies}
         session= requests.Session()
         capKey = Captcha()
-        r = session.post(f'https://discord.com/api/v9/oauth2/authorize?client_id={userId}&scope=bot%20applications.commands', headers=bypassHeader(userId, token), json={'guild_id': str(guild_id), 'authorize': True, 'permissions': '1024', 'captcha_key': capKey})
+        r = session.post(f'https://discord.com/api/v9/oauth2/authorize?client_id={userId}&scope=bot%20applications.commands', proxies=proxy, headers=bypassHeader(userId, token), json={'guild_id': str(guild_id), 'authorize': True, 'permissions': '1024', 'captcha_key': capKey})
         prnt._write(datefmt='%H:%M:%S.%f', text=f"{r.text}")
         if r.status_code == 429:
             time.sleep(2)
